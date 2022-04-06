@@ -75,3 +75,4 @@ transactions = Table('transactions', metadata,
                      Column('purpose', String(250)),
                      Index('ix01_transactions', 'division_id', 'transaction_date', 'card_posting_dt')
                      )
+

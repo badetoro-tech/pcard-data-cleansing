@@ -30,15 +30,8 @@ while True:
     # import excel data
     import_excel_data(debug)
 
-
-
-
-
-
-
-
-finish_time = datetime.now()
-
-if debug >= 0:
-    print(f'*** Finished program at {finish_time.strftime("%d-%b-%Y %I:%M:%S.%f %p")} ***')
-    print(f'*** Time to complete - {finish_time - start_time} ***')
+# finish_time = datetime.now()
+#
+# if debug >= 0:
+#     print(f'*** Finished program at {finish_time.strftime("%d-%b-%Y %I:%M:%S.%f %p")} ***')
+#     print(f'*** Time to complete - {finish_time - start_time} ***')

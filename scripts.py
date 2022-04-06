@@ -124,6 +124,10 @@ def import_excel_data(debug):
                                    str(row.purpose)
                                    )
 
+            # # Write to Database
+            # with engine.begin() as conn:
+            #     df.to_sql('pcard_staging_table', con=conn, index=False, if_exists='append', chunksize=1000)
+
             # Move processed file from the unprocessed folder to processed folder
             replace(f'{unprocessed_filepath}/{excel_file}', f'{processed_filepath}/{excel_file}')
 
