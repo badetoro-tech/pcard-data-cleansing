@@ -1,13 +1,8 @@
-import openpyxl
-import xlrd
-
 from scripts import check_setup_data, import_excel_data, write_to_file
-from datetime import datetime, timedelta
+from datetime import datetime
 from models import metadata
 from database_conn import engine
-from config import DEBUG, PROCESSED_FOLDER, UNPROCESSED_FOLDER, WAIT_TIME
-import time
-
+from config import DEBUG, PROCESSED_FOLDER, UNPROCESSED_FOLDER
 
 # initialise local variables
 today = datetime.today().date()

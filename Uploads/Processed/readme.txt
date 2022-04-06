@@ -1,0 +1,1 @@
+This folder is meant to contain files that have been processed.

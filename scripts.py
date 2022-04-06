@@ -1,13 +1,12 @@
 import time
 
 from models import currency_list, pcard_staging_table
-from sqlalchemy import insert, select, func, delete, exc
+from sqlalchemy import insert, select, func, delete
 from database_conn import engine
 from config import PROCESSED_FOLDER, UNPROCESSED_FOLDER, WAIT_TIME, LOG_FILE
 import pandas as pd
-from os import listdir, replace, remove
+from os import listdir, replace
 from datetime import datetime
-from pprint import pprint
 
 connection = engine.connect().execution_options(isolation_level="AUTOCOMMIT")
 unprocessed_filepath = UNPROCESSED_FOLDER
@@ -49,10 +48,15 @@ def check_setup_data(debug):
 
 
 def import_excel_data(debug):
-    directory_list = listdir(unprocessed_filepath)
-    arr = directory_list
+    # directory_list = listdir(unprocessed_filepath)
+    # arr = directory_list
 
-    if not directory_list:
+    arr = []
+    for file in listdir(unprocessed_filepath):
+        if file.lower().endswith(('.xls', 'xlsx')):
+            arr.append(file)
+
+    if not arr:
         if debug >= 1:
             msg = 'No file to process ...'
             write_to_file(msg)
@@ -60,7 +64,7 @@ def import_excel_data(debug):
         time.sleep(timeout)
     else:
         if debug >= 0:
-            msg = f'There are files {len(directory_list)} to be processed...'
+            msg = f'There are files {len(arr)} to be processed...'
             write_to_file(msg)
             print(msg)
 
@@ -150,10 +154,10 @@ def empty_staging_table(debug):
     connection.execute(dlt)
 
 
-def build_db_objects(folder_path):
-    # Open and read the file as a single buffer
-    with open(folder_path, 'r') as inp:
-        connection.execute(f'''inp''')
+# def build_db_objects(folder_path):
+#     # Open and read the file as a single buffer
+#     with open(folder_path, 'r') as inp:
+#         connection.execute(f'''inp''')
 
 
 def write_to_file(msg):
