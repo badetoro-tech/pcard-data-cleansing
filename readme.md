@@ -26,12 +26,13 @@ This program is developed using PyCharm, so we can download and install PyCharm.
 ## Method 2: Executing by command prompt.
 1. Open the command prompt and navigate to the source code folder.
 2. Once inside, run the following command without the *: *python main.py*
-3. If it fails, create the virtual environment by running: *python3 -m venv venv*
+3. If it fails, create the virtual environment by running: *python -m venv venv*
 4. Then execute the following:
-   1. cd env\bin
+   1. cd venv\scripts
    2. activate
+   3. cd ...
 5. Then install all the prerequisites listed in the requirement.txt file by executing the following command: *python -m pip install -r requirements.txt*
-6. After all the requiements are successfully installed, execute this again: *python3 -m venv venv*
+6. After all the requiements are successfully installed, execute this again: *python main.py*
 7. The program will start working and process files as long as the unprocessed folder is not empty.
 8. Close the command prompt to stop the process.
  
